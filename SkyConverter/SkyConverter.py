@@ -1,6 +1,9 @@
 from tkinter import *
 import getpass
 from tkinter import filedialog as fd
+import time
+name = False
+
 
 root = Tk()
 root.title("SkyConverter | Конвертор файловых форматов")
@@ -17,8 +20,13 @@ status_expectation = Label(root, text='Ожидание загрузки фай�
 status_expectation.place(x=110, y=100)
 
 def callback():
-    name= fd.askopenfilename()
+    name = fd.askopenfilename()
+    name = True
     print(name)
+    if name == True:
+        print('+')
+        status_expectation = Label(root, text='Файл загружен (' + time.strftime("%H:%M:%S", time.localtime()) + ')', font=("Arial Bold", 20), bg="#CCFFFF")
+        status_expectation.place(x=450, y=100)
 
 button = Button(root, text="Загрузить файл", font=("Arial Bold", 20), bg="lightgreen", command=callback)
 button.place(relx=0.5, rely=0.5, anchor="c")
