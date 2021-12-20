@@ -22,9 +22,9 @@ status_expectation.place(x=110, y=100)
 def callback():
     name = fd.askopenfilename()
     name = True
-    print(name)
+    print('Файл выбран')
     if name == True:
-        print('+')
+        print('Файл загружен в ' + time.strftime("%H:%M:%S", time.localtime()))
         status_expectation = Label(root, text='Файл загружен (' + time.strftime("%H:%M:%S", time.localtime()) + ')', font=("Arial Bold", 20), bg="#CCFFFF")
         status_expectation.place(x=450, y=100)
 
